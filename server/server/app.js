@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3005;
 
-mongoose.connect('mongodb://Yauhen:Pass123@ds163835.mlab.com:63835/graphql-tutorial', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://Denis:82469173@cluster0.r2jtg.mongodb.net/test', { useNewUrlParser: true });
 
 app.use(cors());
 
