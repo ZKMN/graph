@@ -1,1 +1,0 @@
-mongoimport --host atlas-13touo-shard-0/cluster0-shard-00-00.r2jtg.mongodb.net:27017,cluster0-shard-00-01.r2jtg.mongodb.net:27017,cluster0-shard-00-02.r2jtg.mongodb.net:27017 --ssl --username Denis --password 82469173 --authenticationDatabase admin --db test --collection movies --type json --file data.json

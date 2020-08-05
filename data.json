@@ -1,18 +1,18 @@
 {
    "directors": [
-    {"name": "Quentin Tarantino", "age": 55, "id": 1 },
-    { "name": "Michael Radford", "age": 72, "id": 4 },
-    { "name": "James McTeigue", "age": 51, "id": 3 },
-    { "name": "Guy Ritchie", "age": 50, "id": 2 }
+    {"name": "Quentin Tarantino", "age": 55 },
+    { "name": "Michael Radford", "age": 72 },
+    { "name": "James McTeigue", "age": 51 },
+    { "name": "Guy Ritchie", "age": 50 }
    ],
   "movies": [
-    { "name": "Pulp Fiction", "genre": "Crime", "directorId": "1" },
-    { "name": "1984", "genre": "Sci-Fi", "directorId": "4" },
-    { "name": "V for vendetta", "genre": "Sci-Fi-Triller", "directorId": "3" },
-    { "name": "Snatch", "genre": "Crime-Comedy", "directorId": "2" },
-    { "name": "Reservoir Dogs", "genre": "Crime", "directorId": "1" },
-    { "name": "The Hateful Eight", "genre": "Crime", "directorId": "1" },
-    { "name": "Inglourious Basterds", "genre": "Crime", "directorId": "1" },
-    { "name": "Lock, Stock and Two Smoking Barrels", "genre": "Crime-Comedy", "directorId": "2" }
+    { "name": "Pulp Fiction", "genre": "Crime", "directorId": "5f2b0daae217dd2ce4c8e3f9" },
+    { "name": "1984", "genre": "Sci-Fi", "directorId": "5f2b0e59e217dd2ce4c8e3fd" },
+    { "name": "V for vendetta", "genre": "Sci-Fi-Triller", "directorId": "5f2b0e66e217dd2ce4c8e3fe" },
+    { "name": "Snatch", "genre": "Crime-Comedy", "directorId": "5f2b0e77e217dd2ce4c8e3ff" },
+    { "name": "Reservoir Dogs", "genre": "Crime", "directorId": "5f2b0daae217dd2ce4c8e3f9" },
+    { "name": "The Hateful Eight", "genre": "Crime", "directorId": "5f2b0daae217dd2ce4c8e3f9" },
+    { "name": "Inglourious Basterds", "genre": "Crime", "directorId": "5f2b0daae217dd2ce4c8e3f9" },
+    { "name": "Lock, Stock and Two Smoking Barrels", "genre": "Crime-Comedy", "directorId": "5f2b0e77e217dd2ce4c8e3ff" }
   ]
 }
