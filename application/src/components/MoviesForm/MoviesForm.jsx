@@ -15,22 +15,31 @@ import SaveIcon from '@material-ui/icons/Save';
 import withHocs from './MoviesFormHoc';
 
 class MoviesForm extends React.Component {
-  handleClose = () => {
-    this.props.onClose();
-  };
+  handleClose = () => this.props.onClose();
 
   handleSave = () => {
     const { selectedValue, onClose, addMovie, updateMovie } = this.props;
     const { id, name, genre, rate, directorId, watched } = selectedValue;
-    id ?
-    updateMovie({id, name, genre, rate: Number(rate), directorId, watched: Boolean(watched) }) :
-    addMovie({ name, genre, rate: Number(rate), directorId, watched: Boolean(watched) });
+
+    if (id) {
+      updateMovie({ id, name, genre, rate: Number(rate), directorId, watched: Boolean(watched) });
+    } else {
+      addMovie({ name, genre, rate: Number(rate), directorId, watched: Boolean(watched) });
+    }
+
     onClose();
   };
 
   render() {
-    const { data = {}, classes, open, handleChange, handleSelectChange, handleCheckboxChange, selectedValue = {} } = this.props;
-    const { name, genre, rate, directorId, watched } = selectedValue;
+    const {
+      data = {}, classes, open, selectedValue = {},
+      handleChange, handleSelectChange, handleCheckboxChange,
+    } = this.props;
+    const {
+      name, genre, rate,
+      directorId, watched,
+    } = selectedValue;
+
     const { directors = [] } = data;
 
     return (
@@ -77,7 +86,7 @@ class MoviesForm extends React.Component {
               onChange={handleSelectChange}
               input={<OutlinedInput name="directorId" id="outlined-director" labelWidth={57} />}
             >
-            {directors.map(director => <MenuItem key={director.id} value={director.id}>{director.name}</MenuItem>)}
+              {directors.map(director => <MenuItem key={director.id} value={director.id}>{director.name}</MenuItem>)}
             </Select>
           </FormControl>
           <div className={classes.wrapper}>
@@ -93,6 +102,6 @@ class MoviesForm extends React.Component {
       </Dialog>
     );
   }
-};
+}
 
-  export default withHocs(MoviesForm);
+export default withHocs(MoviesForm);

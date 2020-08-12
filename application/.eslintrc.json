@@ -1,0 +1,97 @@
+{
+  "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true,
+      "es2020": true
+  },
+  "extends": [
+      "airbnb",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended"
+  ],
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react",
+      "jsx-a11y"
+  ],
+  "rules": {
+      "camelcase": 0,
+      "import/no-named-as-default": 0,
+      "no-param-reassign": 0,
+      "import/extensions": 0,
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/prefer-default-export": 0,
+      "quotes": [2, "single"],
+      "jsx-quotes": ["error", "prefer-double"],
+      "curly": ["error", "all"],
+      "quote-props": ["error", "as-needed"],
+      "no-console": [2, { "allow": ["warn", "error", "info"] }],
+      "no-use-before-define": ["error", { "functions": false, "classes": true }],
+      "max-len": [2, 300, 4],
+      "linebreak-style": "off",
+      "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
+      "padded-blocks": 0,
+      "comma-dangle": ["error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }],
+      "generator-star-spacing": [1, "after"],
+      "array-bracket-spacing": 1,
+      "no-await-in-loop": 1,
+      "object-shorthand": 2,
+      "object-curly-spacing": 2,
+      "prefer-destructuring": 2,
+      "function-paren-newline": 0,
+      "object-curly-newline": 0,
+      "keyword-spacing": ["error", { "after": true, "before": true }],
+      "arrow-parens": ["error", "as-needed"],
+      "default-case": 0,
+      "no-confusing-arrow": 0,
+      "no-shadow": 0,
+      "no-restricted-globals": ["off", "isNaN"],
+      "react/jsx-curly-newline": 0,
+      "react/jsx-props-no-spreading": 0,
+      "react/display-name": 0,
+      "react/button-has-type": 0,
+      "react/prefer-stateless-function": 2,
+      "react/forbid-prop-types": 0,
+      "react/require-default-props": 0,
+      "react/no-unused-prop-types": 2,
+      "react/prop-types": 0,
+      "react/jsx-filename-extension": 0,
+      "react/no-array-index-key": 0,
+      "react/jsx-handler-names": 0,
+      "react/destructuring-assignment": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "react/jsx-wrap-multilines": 0,
+      "react/no-access-state-in-setstate": 0,
+      "react/jsx-tag-spacing": 0,
+  
+      "import/no-cycle": 0,
+
+      "jsx-a11y/anchor-is-valid": 0,
+      "jsx-a11y/label-has-for": 0,
+      "jsx-a11y/label-has-associated-control": 0,
+      "jsx-a11y/no-template-curly-in-string": "off",
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "jsx-a11y/no-static-element-interactions": "off",
+      "jsx-a11y/click-events-have-key-events": "off"
+  }
+}
