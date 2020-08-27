@@ -18,21 +18,25 @@ import DirectorsSearch from '../DirectorsSearch/DirectorsSearch';
 import withHocs from './DirectorsTableHoc';
 
 class DirectorsTable extends React.Component {
-  state = {
-    anchorEl: null,
-    openDialog: false,
-    name: '',
-  };
+  constructor(props) {
+    super(props);
 
-  handleChange = name => (event) => {
+    this.state = {
+      anchorEl: null,
+      openDialog: false,
+      name: '',
+    };
+  }
+
+  handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
 
-  handleSearch = (e) => {
+  handleSearch = e => {
     const { data } = this.props;
     const { name } = this.state;
 
-    if(e.charCode === 13) {
+    if (e.charCode === 13) {
       data.fetchMore({
         variables: { name },
         updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
@@ -41,6 +45,7 @@ class DirectorsTable extends React.Component {
   };
 
   handleDialogOpen = () => { this.setState({ openDialog: true }); };
+
   handleDialogClose = () => { this.setState({ openDialog: false }); };
 
   handleClick = ({ currentTarget }, data) => {
@@ -52,7 +57,7 @@ class DirectorsTable extends React.Component {
 
   handleClose = () => { this.setState({ anchorEl: null }); };
 
-  handleEdit = (row) => {
+  handleEdit = () => {
     this.props.onOpen(this.state.data);
     this.handleClose();
   };
@@ -80,38 +85,36 @@ class DirectorsTable extends React.Component {
                 <TableCell>Name</TableCell>
                 <TableCell align="right">Age</TableCell>
                 <TableCell>Movies</TableCell>
-                <TableCell></TableCell>
+                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
-              {directors.map(director => {
-                return (
-                  <TableRow key={director.id}>
-                    <TableCell component="th" scope="row">{director.name}</TableCell>
-                    <TableCell align="right">{director.age}</TableCell>
-                    <TableCell>
-                      {director.movies.map((movie, key) => <div key={movie.name}>{`${key+1}. `}{movie.name}</div>)}
-                    </TableCell>
-                    <TableCell align="right">
-                      <>
-                        <IconButton color="inherit" onClick={(e) => this.handleClick(e, director)}>
-                          <MoreIcon />
-                        </IconButton>
-                        <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose} >
-                          <MenuItem onClick={() => this.handleEdit(director)}><CreateIcon /> Edit</MenuItem>
-                          <MenuItem onClick={this.handleDelete}><DeleteIcon /> Delete</MenuItem>
-                        </Menu>
-                      </>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+              {directors.map(director => (
+                <TableRow key={director.id}>
+                  <TableCell component="th" scope="row">{director.name}</TableCell>
+                  <TableCell align="right">{director.age}</TableCell>
+                  <TableCell>
+                    {director.movies.map((movie, key) => <div key={movie.name}>{`${key+1}. `}{movie.name}</div>)}
+                  </TableCell>
+                  <TableCell align="right">
+                    <>
+                      <IconButton color="inherit" onClick={e => this.handleClick(e, director)}>
+                        <MoreIcon />
+                      </IconButton>
+                      <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose} >
+                        <MenuItem onClick={() => this.handleEdit(director)}><CreateIcon /> Edit</MenuItem>
+                        <MenuItem onClick={this.handleDelete}><DeleteIcon /> Delete</MenuItem>
+                      </Menu>
+                    </>
+                  </TableCell>
+                </TableRow>
+                ))}
             </TableBody>
           </Table>
         </Paper>
       </>
     );
   }
-};
+}
 
 export default withHocs(DirectorsTable);

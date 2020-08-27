@@ -19,21 +19,25 @@ import MoviesSearch from '../MoviesSearch/MoviesSearch';
 import withHocs from './MoviesTableHoc';
 
 class MoviesTable extends React.Component {
-  state = {
-    anchorEl: null,
-    openDialog: false,
-    name: '',
-  };
+  constructor(props) {
+    super(props);
 
-  handleChange = name => (event) => {
+    this.state = {
+      anchorEl: null,
+      openDialog: false,
+      name: '',
+    };
+  }
+
+  handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
 
-  handleSearch = (e) => {
+  handleSearch = e => {
     const { data } = this.props;
     const { name } = this.state;
 
-    if(e.charCode === 13) {
+    if (e.charCode === 13) {
       data.fetchMore({
         variables: { name },
         updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
@@ -85,7 +89,7 @@ class MoviesTable extends React.Component {
                 <TableCell align="right">Rate</TableCell>
                 <TableCell>Director</TableCell>
                 <TableCell>Watched</TableCell>
-                <TableCell align="right"></TableCell>
+                <TableCell align="right" />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -101,7 +105,7 @@ class MoviesTable extends React.Component {
                     </TableCell>
                     <TableCell align="right">
                       <>
-                        <IconButton color="inherit" onClick={(e) => this.handleClick(e, movie)}>
+                        <IconButton color="inherit" onClick={e => this.handleClick(e, movie)}>
                           <MoreIcon />
                         </IconButton>
                         <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose} >
@@ -119,6 +123,6 @@ class MoviesTable extends React.Component {
       </>
     );
   }
-};
+}
 
 export default withHocs(MoviesTable);
