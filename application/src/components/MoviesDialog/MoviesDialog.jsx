@@ -28,10 +28,10 @@ class MoviesDialog extends React.Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Are you sire that you want to delete element?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Are you sire that you want to delete element?</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            If you click 'Confirm' this element will be removed from data base.
+            If you click &apos;Confirm&apos; this element will be removed from data base.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

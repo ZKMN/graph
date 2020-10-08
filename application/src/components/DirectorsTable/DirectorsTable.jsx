@@ -94,7 +94,7 @@ class DirectorsTable extends React.Component {
                   <TableCell component="th" scope="row">{director.name}</TableCell>
                   <TableCell align="right">{director.age}</TableCell>
                   <TableCell>
-                    {director.movies.map((movie, key) => <div key={movie.name}>{`${key+1}. `}{movie.name}</div>)}
+                    {director.movies.map((movie, key) => <div key={movie.name}>{`${key + 1}. `}{movie.name}</div>)}
                   </TableCell>
                   <TableCell align="right">
                     <>
@@ -108,7 +108,7 @@ class DirectorsTable extends React.Component {
                     </>
                   </TableCell>
                 </TableRow>
-                ))}
+              ))}
             </TableBody>
           </Table>
         </Paper>

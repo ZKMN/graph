@@ -19,11 +19,16 @@ const TabContainer = ({ children, dir }) => (
 );
 
 class SimpleTabs extends React.Component {
-  state = {
-    value: 0,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: 0,
+    };
+  }
 
   handleChange = (event, value) => { this.setState({ value }); };
+
   handleChangeIndex = index => { this.setState({ value: index }); };
 
   render() {
@@ -33,7 +38,7 @@ class SimpleTabs extends React.Component {
     return (
       <div className={classes.root}>
         <AppBar position="static">
-          <Tabs variant='fullWidth' value={value} onChange={this.handleChange}>
+          <Tabs variant="fullWidth" value={value} onChange={this.handleChange}>
             <Tab label="Movies" icon={<CameraIcon />} />
             <Tab label="Directors" icon={<MovieCreationIcon />} />
           </Tabs>

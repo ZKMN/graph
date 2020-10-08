@@ -22,9 +22,22 @@ class MoviesForm extends React.Component {
     const { id, name, genre, rate, directorId, watched } = selectedValue;
 
     if (id) {
-      updateMovie({ id, name, genre, rate: Number(rate), directorId, watched: Boolean(watched) });
+      updateMovie({
+        id,
+        name,
+        genre,
+        rate: Number(rate),
+        directorId,
+        watched: Boolean(watched),
+      });
     } else {
-      addMovie({ name, genre, rate: Number(rate), directorId, watched: Boolean(watched) });
+      addMovie({
+        name,
+        genre,
+        rate: Number(rate),
+        directorId,
+        watched: Boolean(watched),
+      });
     }
 
     onClose();
@@ -43,8 +56,17 @@ class MoviesForm extends React.Component {
     const { directors = [] } = data;
 
     return (
-      <Dialog onClose={this.handleClose} open={open} aria-labelledby="simple-dialog-title">
-        <DialogTitle className={classes.title} id="simple-dialog-title">Movie information</DialogTitle>
+      <Dialog
+        onClose={this.handleClose}
+        open={open}
+        aria-labelledby="simple-dialog-title"
+      >
+        <DialogTitle
+          className={classes.title}
+          id="simple-dialog-title"
+        >
+          Movie information
+        </DialogTitle>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="outlined-name"

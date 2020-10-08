@@ -8,13 +8,17 @@ import MoviesForm from '../MoviesForm/MoviesForm';
 import withHocs from './MoviesHoc';
 
 class Movies extends React.Component {
-  state = {
-    open: false,
-    name: '',
-    genre: '',
-    watched: false,
-    rate: 0,
-    directorId: '',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+      name: '',
+      genre: '',
+      watched: false,
+      rate: 0,
+      directorId: '',
+    };
   }
 
   handleClickOpen = (data = {}) => {
@@ -32,12 +36,14 @@ class Movies extends React.Component {
       watched: false,
       rate: 0,
       directorId: '',
-      open: false
+      open: false,
     });
   };
 
   handleSelectChange = ({ target }) => { this.setState({ [target.name]: target.value }); };
+
   handleCheckboxChange = name => ({ target }) => { this.setState({ [name]: target.checked }); };
+
   handleChange = name => ({ target }) => { this.setState({ [name]: target.value }); };
 
   render() {
@@ -46,16 +52,31 @@ class Movies extends React.Component {
 
     return (
       <>
-        <MoviesForm handleChange={this.handleChange} handleSelectChange={this.handleSelectChange} handleCheckboxChange={this.handleCheckboxChange} selectedValue={{ id, name, genre, watched, rate, directorId }} open={open} onClose={this.handleClose} />
+        <MoviesForm
+          handleChange={this.handleChange}
+          handleSelectChange={this.handleSelectChange}
+          handleCheckboxChange={this.handleCheckboxChange}
+          selectedValue={{ id, name, genre, watched, rate, directorId }}
+          open={open}
+          onClose={this.handleClose}
+        />
         <div className={classes.wrapper}>
-          <MoviesTable onOpen={this.handleClickOpen} onClose={this.handleClose} />
-          <Fab onClick={() => this.handleClickOpen()} color="primary" aria-label="Add" className={classes.fab}>
+          <MoviesTable
+            onOpen={this.handleClickOpen}
+            onClose={this.handleClose}
+          />
+          <Fab
+            onClick={() => this.handleClickOpen()}
+            color="primary"
+            aria-label="Add"
+            className={classes.fab}
+          >
             <AddIcon />
           </Fab>
         </div>
       </>
     );
   }
-};
+}
 
-export default withHocs(Movies)
+export default withHocs(Movies);

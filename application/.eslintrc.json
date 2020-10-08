@@ -2,8 +2,7 @@
   "env": {
       "browser": true,
       "es6": true,
-      "jest": true,
-      "es2020": true
+      "jest": true
   },
   "extends": [
       "airbnb",
@@ -51,7 +50,7 @@
         "imports": "always-multiline",
         "exports": "always-multiline",
         "functions": "always-multiline"
-      }],
+    }],
       "generator-star-spacing": [1, "after"],
       "array-bracket-spacing": 1,
       "no-await-in-loop": 1,
