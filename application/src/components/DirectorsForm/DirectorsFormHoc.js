@@ -1,6 +1,6 @@
 import { withStyles } from '@material-ui/core/styles';
 import { compose } from 'recompose';
-import { graphql } from 'react-apollo';
+import { graphql } from '@apollo/react-hoc';
 
 import { addDirectorMutation, updatedDirectorMutation } from './mutations';
 import { directorsQuery } from '../DirectorsTable/queries';
@@ -29,7 +29,7 @@ const withGraphQL = compose(
         }],
       }),
     }),
-  })
+  }),
 );
 
 export default compose(withStyles(styles), withGraphQL);

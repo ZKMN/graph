@@ -1,6 +1,6 @@
 import { withStyles } from '@material-ui/core/styles';
 import { compose } from 'recompose';
-import { graphql } from 'react-apollo';
+import { graphql } from '@apollo/react-hoc';
 
 import { addMovieMutation, updateMovieMutation } from './mutations';
 import { moviesQuery } from '../MoviesTable/queries';

@@ -1,12 +1,18 @@
 import React from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import theme from './components/theme';
 import Tabs from './components/Tabs/Tabs';
 
-const client = new ApolloClient({
+const cache = new InMemoryCache();
+const link = createHttpLink({
   uri: 'http://localhost:3005/graphql',
+});
+
+const client = new ApolloClient({
+  // Provide required constructor fields
+  cache,
+  link,
 });
 
 const App = () => (

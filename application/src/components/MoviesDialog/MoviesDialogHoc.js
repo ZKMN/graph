@@ -1,5 +1,5 @@
 import { compose } from 'recompose';
-import { graphql } from 'react-apollo';
+import { graphql } from '@apollo/react-hoc';
 
 import { deleteMovieMutation } from './mutations';
 import { moviesQuery } from '../MoviesTable/queries';

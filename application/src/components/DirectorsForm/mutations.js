@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 export const addDirectorMutation = gql`
   mutation addDirector($name: String!, $age: Int!) {
