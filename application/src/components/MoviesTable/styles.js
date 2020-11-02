@@ -8,4 +8,7 @@ export const styles = theme => ({
     width: '100%',
     overflowX: 'auto',
   },
+  buttonAdd: {
+    marginBottom: '20px',
+  },
 });

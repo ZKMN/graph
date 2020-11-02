@@ -7,6 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -33,16 +35,14 @@ class MoviesTable extends React.Component {
     this.setState({ [name]: event.target.value });
   };
 
-  handleSearch = e => {
+  handleSearch = () => {
     const { data } = this.props;
     const { name } = this.state;
 
-    if (e.charCode === 13) {
-      data.fetchMore({
-        variables: { name },
-        updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
-      });
-    }
+    data.fetchMore({
+      variables: { name },
+      updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+    });
   };
 
   handleDialogOpen = () => this.setState({ openDialog: true });
@@ -71,7 +71,7 @@ class MoviesTable extends React.Component {
   render() {
     const { anchorEl, openDialog, data: activeElem = {}, name } = this.state;
 
-    const { classes, data = {} } = this.props;
+    const { classes, data = {}, onOpen } = this.props;
 
     const { movies = [] } = data;
 
@@ -84,6 +84,14 @@ class MoviesTable extends React.Component {
             handleSearch={this.handleSearch}
           />
         </Paper>
+        <Button
+          onClick={onOpen}
+          variant="contained"
+          color="primary"
+          className={classes.buttonAdd}
+        >
+          <AddIcon /> Add movie
+        </Button>
         <MoviesDialog
           open={openDialog}
           handleClose={this.handleDialogClose}

@@ -7,7 +7,7 @@ import { moviesQuery } from '../MoviesTable/queries';
 const withGraphqlDelete = graphql(deleteMovieMutation, {
   props: ({ mutate }) => ({
     deleteMovie: id => mutate({
-      variables: id,
+      variables: { id },
       refetchQueries: [{
         query: moviesQuery,
         variables: { name: '' },

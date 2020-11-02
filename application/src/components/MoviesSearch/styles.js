@@ -1,7 +1,8 @@
 export const styles = theme => ({
   search: {
+    display: 'flex',
+    flex: 1,
     position: 'relative',
-    width: '100%',
     marginBottom: theme.spacing.unit * 3,
   },
   searchIcon: {

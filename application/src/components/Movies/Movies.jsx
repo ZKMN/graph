@@ -1,6 +1,4 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 
 import MoviesTable from '../MoviesTable/MoviesTable';
 import MoviesForm from '../MoviesForm/MoviesForm';
@@ -65,14 +63,6 @@ class Movies extends React.Component {
             onOpen={this.handleClickOpen}
             onClose={this.handleClose}
           />
-          <Fab
-            onClick={() => this.handleClickOpen()}
-            color="primary"
-            aria-label="Add"
-            className={classes.fab}
-          >
-            <AddIcon />
-          </Fab>
         </div>
       </>
     );
